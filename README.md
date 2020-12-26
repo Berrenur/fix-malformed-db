@@ -12,12 +12,12 @@ To fix 'malformed db' try these steps
 - open a prompt from sqlite3
 
   ```
-  sqlite3 ./accelerometer.db
+  sqlite3 ~/accelerometer.db
   ```
 - run these SQL scripts
 
   ```.mode insert
-  .output ./dump_all.sql
+  .output ~/dump_all.sql
   .dump
   .exit
   ```
@@ -25,19 +25,19 @@ To fix 'malformed db' try these steps
 - editing dump_all.sql file
 
   ```
-  cat ./dump_all.sql | grep -v TRANSACTION | grep -v ROLLBACK | grep -v COMMIT >./dump_all_notrans.sql
+  cat ~/dump_all.sql | grep -v TRANSACTION | grep -v ROLLBACK | grep -v COMMIT >~/dump_all_notrans.sql
   ```
 
 - remove corrupted db from the file repository being worked on (make sure you take backup file before that):
 
   ```
-  rm ./accelerometer.db
+  rm ~/accelerometer.db
   ```
 
 - creation of fixed db from dump_all_notrans.sql
 
   ```
-  sqlite3 ./accelerometer.db ".read ./dump_all_notrans.sql"
+  sqlite3 ~/accelerometer.db ".read ~/dump_all_notrans.sql"
   ```
 
 
