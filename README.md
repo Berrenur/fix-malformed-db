@@ -9,7 +9,6 @@ To fix 'malformed db' try these steps
   * For other OS, please see: https://www.sqlitetutorial.net/download-install-sqlite/
 
 ### Usage
-For each corrupted db, follow these steps:
 - open a prompt from sqlite3
 
   ```
