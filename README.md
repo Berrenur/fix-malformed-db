@@ -26,7 +26,7 @@ For each corrupted db, follow these steps:
 - editing dump_all.sql file
 
   ```
-  cat /dump_all.sql | grep -v TRANSACTION | grep -v ROLLBACK | grep -v COMMIT >/dump_all_notrans.sql
+  cat ./dump_all.sql | grep -v TRANSACTION | grep -v ROLLBACK | grep -v COMMIT >./dump_all_notrans.sql
   ```
 
 - remove corrupted db from the file repository being worked on (make sure you take backup file before that):
@@ -38,7 +38,7 @@ For each corrupted db, follow these steps:
 - creation of fixed db from dump_all_notrans.sql
 
   ```
-  sqlite3 ./accelerometer.db ".read dump_all_notrans.sql"
+  sqlite3 ./accelerometer.db ".read ./dump_all_notrans.sql"
   ```
 
 
